@@ -1,27 +1,36 @@
 import React from 'react';
 
 const Modal = (props) => {
-
   const { title = 'insert title', content = 'insert content' } = props;
-  const { show , close } = props;
+  const { show, close } = props;
   const {
-    closeBtnClassName = 'close-modal-options',
-    modalClassName = 'modal-options',
-    modalTitleClassName,
-    modalContentClassName,
+    customClassName = {
+      closeBtn: 'close-modal-options',
+      modal: 'modal-options',
+      title: '',
+      content: '',
+    },
   } = props;
 
   return (
     <div className={`modal-container ${show ? 'show' : ''}`}>
-      <div className={`modal ${modalClassName}`}>
+      <div
+        className={`modal ${
+          customClassName.modal ? customClassName.modal : 'modal-options'
+        }`}
+      >
         <button
-          className={`close-modal ${closeBtnClassName}`}
+          className={`close-modal ${
+            customClassName.closeBtn
+              ? customClassName.closeBtn
+              : 'close-modal-options'
+          }`}
           onClick={close}
         >
           X
         </button>
-        <div className={modalTitleClassName}>{title}</div>
-        <div className={modalContentClassName}>{content}</div>
+        <div className={customClassName.title}>{title}</div>
+        <div className={customClassName.content}>{content}</div>
       </div>
       {props.children}
     </div>

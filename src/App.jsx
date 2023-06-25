@@ -16,10 +16,12 @@ const App = () => {
           show={isOpen}
           title={'Selected employee:'}
           content={'Daniel Gonzalez'}
-          closeBtnClassName={'custom-btn'}
-          modalClassName={'custom-modal'}
-          modalTitleClassName={'custom-title'}
-          modalContentClassName={'custom-modal-content'}
+          customClassName={{
+            closeBtn: 'custom-btn',
+            modal: 'custom-modal',
+            title: 'custom-title',
+            content: 'custom-modal-content',
+          }}
         />
       </div>
     </>
