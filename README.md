@@ -1,70 +1,155 @@
-# Getting Started with Create React App
+<p align="center">
+<img src="https://img.shields.io/badge/NPM-Published-crimson?style=for-the-badge&logo=npm">
+<img src="https://img.shields.io/badge/Create%20with-React-blue?style=for-the-badge&logo=react">
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# modal-library
 
-In the project directory, you can run:
+NPM package made with create-react-app
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+react component for displaying a modal in full screen mode. 
+The modal contains: 
+- a close button
+- a title
+- content (which can be text or a component)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+style can be customised using props
 
-### `npm test`
+## Install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install --save react-modal-library
+```
 
-### `npm run build`
+## Documentation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After installing the package on your dependencies, import the library in your parent component.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### importation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```jsx
+import { Modal } from 'react-modal-library';
+```
 
-### `npm run eject`
+### Setup the state to open / close the modal in your parent component
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- import useState from react
+- create the state with useState => it will be a boolean with false by default
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```jsx
+ const [isOpen, setIsOpen] = useState(false);
+ ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### modal implementation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```jsx
+<Modal
+  close={() => setIsOpen(false)}
+  show={isOpen}
+  title={'Selected employee:'}
+  content={<Content/>}
+  }}
+/>
+```
 
-## Learn More
+### Props Description
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Close (required): handle the modal closing. the props is must receive a function where you pass the setter to false 
+- show (required) : handle the modal opening. the props must receive the state value of the getter (isOpen)
+- title(required): contain the modal title 
+- content(required): contain the modal content. It could be a string or an object
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+- customClassName: 
+There is a default style for the modal but you can customize it. Create your own css style and add the class names to the prop "customClassName". 
+"customClassName" is an object where you can pass class names for following parts of the modal: 
+- the modal container
+-  the closing button
+- the title
+- the content
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```jsx
+customClassName={{
+  closeBtn: 'custom-btn',
+  modal: 'custom-modal',
+  title: 'custom-title',
+  content: 'custom-modal-content',
+}}
+```
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Simple Example
 
-### Making a Progressive Web App
+```jsx
+import React, { useState } from 'react';
+import { Modal } from 'react-modal-library';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-### Advanced Configuration
+  return (
+    <>
+      <div className="wrapper">
+        <p>click to show Modal</p>
+        <button onClick={() => setIsOpen(true)} className="btn">
+          Show modal
+        </button>
+        <Modal
+          close={() => setIsOpen(false)}
+          show={isOpen}
+          title={'Selected employee:'}
+          content={'John McLane'}
+          }}
+        />
+      </div>
+    </>
+  );
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+export default App;
+```
 
-### Deployment
+#### Example with object for content and a custom style
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+```jsx
+import React, { useState } from 'react';
+import { Modal } from 'react-modal-library';
+import Content from './Content';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <div className="wrapper">
+        <p>click to show Modal</p>
+        <button onClick={() => setIsOpen(true)} className="btn">
+          Show modal
+        </button>
+        <Modal
+          close={() => setIsOpen(false)}
+          show={isOpen}
+          title={'Selected employee:'}
+          content={<Content/>}
+          customClassName={{
+            closeBtn: 'custom-btn',
+            modal: 'custom-modal',
+            title: 'custom-title',
+            content: 'custom-modal-content',
+          }}
+        />
+      </div>
+    </>
+  );
+};
+
+export default App;
+```
+
+## License
+
+© [Daniel Gonzalez](https://github.com/danielgonzalez0)

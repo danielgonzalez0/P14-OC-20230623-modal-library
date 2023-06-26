@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Modal from './components/Modal';
+import Modal from './lib/components/Modal';
+import Content from './Content';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ const App = () => {
           close={() => setIsOpen(false)}
           show={isOpen}
           title={'Selected employee:'}
-          content={'Daniel Gonzalez'}
+          content={<Content/>}
           customClassName={{
             closeBtn: 'custom-btn',
             modal: 'custom-modal',

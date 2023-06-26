@@ -32,6 +32,7 @@
 
 body:has(.modal-container.show) {
   overflow-y: hidden;
+  
 }
 
 .modal-options {
@@ -68,3 +69,4 @@ body:has(.modal-container.show) {
     background-color: #c1121f;
   }
 }
+

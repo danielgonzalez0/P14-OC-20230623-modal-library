@@ -1,4 +1,5 @@
 import React from 'react';
+import './modal.scss';
 
 const Modal = (props) => {
   const { title = 'insert title', content = 'insert content' } = props;
