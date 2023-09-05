@@ -21,7 +21,7 @@ style can be customised using props
 ## Install
 
 ```bash
-npm install --save react-modal-library
+npm install --save library-react-modal
 ```
 
 ## Documentation
@@ -31,7 +31,7 @@ After installing the package on your dependencies, import the library in your pa
 ### importation
 
 ```jsx
-import { Modal } from 'react-modal-library';
+import { Modal } from 'library-react-modal';
 ```
 
 ### Setup the state to open / close the modal in your parent component

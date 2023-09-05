@@ -1,4 +1,4 @@
-.modal-container {
+.modal-container-react-modal-library {
   position: fixed;
   z-index: 10000;
   overflow-y: scroll;
@@ -15,23 +15,24 @@
   pointer-events: none;
 }
 
-.modal {
+.modal-react-modal-library {
   position: relative;
   transform: translateY(-200px);
   transition: all 0.3s ease-in-out;
 }
 
-.modal-container.show .modal {
+.modal-container-react-modal-library.show .modal-react-modal-library {
   transform: translateY(0);
 }
 
-.modal-container.show {
+.modal-container-react-modal-library.show {
   opacity: 1;
   pointer-events: visible;
 }
 
-body:has(.modal-container.show) {
+body:has(.modal-container-react-modal-library.show) {
   overflow-y: hidden;
+  padding-right: 17px;
   
 }
 
@@ -49,7 +50,7 @@ body:has(.modal-container.show) {
   gap: 10px;
 }
 
-.close-modal {
+.close-modal-react-modal-library {
   position: absolute;
   top: 0;
   right: 0;

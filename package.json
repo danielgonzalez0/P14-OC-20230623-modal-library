@@ -1,5 +1,5 @@
 {
-  "name": "react-modal-library",
+  "name": "library-react-modal",
   "description": "custom modal component",
   "author": "Daniel Gonzalez",
   "keywords": [
@@ -8,7 +8,7 @@
     "modal",
     "OpenClassrooms"
   ],
-  "version": "0.0.1",
+  "version": "0.0.5",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",

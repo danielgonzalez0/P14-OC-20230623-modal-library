@@ -25,11 +25,11 @@ const Modal = props => {
     }
   } = props;
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "modal-container ".concat(show ? 'show' : '')
+    className: "modal-container-react-modal-library ".concat(show ? 'show' : '')
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "modal ".concat(customClassName.modal ? customClassName.modal : 'modal-options')
+    className: "modal-react-modal-library ".concat(customClassName.modal ? customClassName.modal : 'modal-options')
   }, /*#__PURE__*/_react.default.createElement("button", {
-    className: "close-modal ".concat(customClassName.closeBtn ? customClassName.closeBtn : 'close-modal-options'),
+    className: "close-modal-react-modal-library ".concat(customClassName.closeBtn ? customClassName.closeBtn : 'close-modal-options'),
     onClick: close
   }, "X"), /*#__PURE__*/_react.default.createElement("div", {
     className: customClassName.title

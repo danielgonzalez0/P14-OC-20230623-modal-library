@@ -14,14 +14,16 @@ const Modal = (props) => {
   } = props;
 
   return (
-    <div className={`modal-container ${show ? 'show' : ''}`}>
+    <div
+      className={`modal-container-react-modal-library ${show ? 'show' : ''}`}
+    >
       <div
-        className={`modal ${
+        className={`modal-react-modal-library ${
           customClassName.modal ? customClassName.modal : 'modal-options'
         }`}
       >
         <button
-          className={`close-modal ${
+          className={`close-modal-react-modal-library ${
             customClassName.closeBtn
               ? customClassName.closeBtn
               : 'close-modal-options'
